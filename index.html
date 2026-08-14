@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reinventando Radio</title>
+  
+  <!-- Iconos de Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Hoja de estilos -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,14 +26,14 @@
       <a href="#inicio">INICIO</a> <span>|</span>
       <a href="#programacion">PROGRAMACIÓN</a> <span>|</span>
       <a href="#galeria">GALERÍA</a> <span>|</span>
-      <a href="#contacto">CONTACTO</a> <span>|</span>
-      <a href="#reinventarse">REINVENTARSE</a>
+      <a href="#mision">MISIÓN</a> <span>|</span>
+      <a href="#contacto">CONTACTO</a>
     </nav>
   </header>
 
   <main class="container" id="inicio">
 
-    <!-- SECCIÓN SUPERIOR: REPRODUCTOR, FLYER Y FOTOS -->
+    <!-- SECCIÓN SUPERIOR: REPRODUCTOR Y GALERÍA DE CABINA -->
     <section class="hero-grid">
       
       <!-- REPRODUCTOR EN VIVO CON VOLUMEN -->
@@ -50,12 +55,6 @@
           </div>
           <p>EN AIRE: <span id="streamState">LA MAÑANA REINVENTADA</span></p>
         </div>
-      </div>
-
-      <!-- TARJETA DEL FLYER / POSTER CON EFECTO DE LUZ Y FONDO AMBIENTAL -->
-      <div class="card poster-card">
-        <div class="poster-bg" style="background-image: url('poster.jpg');"></div>
-        <img src="IMG/poster.jpg" alt="After Vibes - DJ Psykcoatl" class="poster-img">
       </div>
 
       <!-- TARJETAS DE FOTOS CABINA -->
@@ -87,10 +86,10 @@
     <!-- BOTONES GRANDES DE ACCIÓN -->
     <section class="banner-buttons">
       <a href="https://www.facebook.com/share/1D6CnRkXz7/" target="_blank" class="btn-action btn-blue">
-        <span class="icon">f</span> IR A FACEBOOK
+        <i class="fab fa-facebook-f"></i> IR A FACEBOOK
       </a>
       <a href="https://wa.me/" target="_blank" class="btn-action btn-green">
-        <span class="icon">💬</span> WHATSAPP EN VIVO
+        <i class="fab fa-whatsapp"></i> WHATSAPP EN VIVO
       </a>
     </section>
 
@@ -102,11 +101,10 @@
     <!-- SECCIÓN DE 4 COLUMNAS -->
     <section class="grid-4-cols">
       
-      <!-- APPS CON FLECHAS INDICADORAS -->
+      <!-- APPS -->
       <div class="card col-card">
         <h3>ESCÚCHANOS POR ESTAS APPS</h3>
         
-        <!-- FLECHAS SEÑALANDO ABAJO -->
         <div class="apps-arrows">
           <span>▼</span>
           <span>▼</span>
@@ -146,7 +144,7 @@
       <div class="card col-card" id="reinventarse">
         <h3>CONCEPTO REINVENTADO</h3>
         <p>Somos una radio online que reinventa la forma de comunicar. Transmitimos música, actualidad y entretenimiento 24/7 para una comunidad que busca contenido fresco, cercano y real.</p>
-        <a href="#contacto" class="link-more">LEER MÁS →</a>
+        <a href="#mision" class="link-more">LEER MÁS →</a>
       </div>
 
       <!-- PRÓXIMOS PROGRAMAS -->
@@ -163,37 +161,38 @@
 
     </section>
 
-    <!-- TÍTULO DE SECCIÓN -->
-    <div class="section-divider">
+    <!-- TÍTULO DE SECCIÓN: NUESTRA MISIÓN -->
+    <div class="section-divider" id="mision">
       <h2>NUESTRA MISIÓN</h2>
     </div>
 
-    <!-- TARJETA MISIÓN -->
-    <section class="card mission-card">
-      <p>En <strong>REINVENTANDO RADIO</strong> nuestra misión es conectar con la audiencia a través de la mejor variedad musical: pop, rock, clásicos y urbana, además de entrevistas exclusivas, programas de actualidad y entretenimiento en vivo. Buscamos ofrecer contenido fresco, informativo y cercano 24/7, comprometidos con escuchar a nuestra comunidad, impulsar nuevas voces y reinventar la radio online con programación cercana, profesional y entretenida para todos.</p>
+    <!-- MISIÓN Y PROMOCIÓN -->
+    <section class="mision-container">
+      <div class="card mission-card">
+        <p>En <strong>REINVENTANDO RADIO</strong> nuestra misión es conectar con la audiencia a través de la mejor variedad musical: pop, rock, clásicos y urbana, además de entrevistas exclusivas, programas de actualidad y entretenimiento en vivo. Buscamos ofrecer contenido fresco, informativo y cercano 24/7, comprometidos con escuchar a nuestra comunidad, impulsar nuevas voces y reinventar la radio online con programación cercana, profesional y entretenida para todos.</p>
+      </div>
+
+      <!-- IMAGEN DE LA PROMOCIÓN JUSTO ABAJO DE LA MISIÓN -->
+      <div class="card poster-card">
+        <div class="poster-bg" style="background-image: url('IMG/poster.jpg');"></div>
+        <img src="IMG/poster.jpg" alt="After Vibes - DJ Psykcoatl" class="poster-img">
+      </div>
     </section>
 
   </main>
 
-  <!-- FOOTER -->
+  <!-- FOOTER LIMPIO -->
   <footer class="footer" id="contacto">
-    <div class="footer-copy">© 2024 REINVENTANDO RADIO • Todos los derechos reservados</div>
-    <div class="footer-links">
-      <a href="#inicio">Mensajes de la Audiencia</a> • 
-      <a href="#contacto">Contacto</a> • 
-      <a href="#">Privacidad</a> • 
-      <a href="#">Política de Cookies</a>
-    </div>
+    <div class="footer-copy">&copy; 2026 REINVENTANDO RADIO &bull; Todos los derechos reservados</div>
     <div class="footer-social">
-      <a href="https://www.facebook.com/share/1D6CnRkXz7/" target="_blank" title="Facebook">f</a>
-      <a href="#" title="Instagram">📷</a>
-      <a href="#" title="X / Twitter">𝕏</a>
-      <a href="#" title="Spotify">🎧</a>
-      <a href="#" title="YouTube">▶</a>
+      <a href="https://www.facebook.com/share/1D6CnRkXz7/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" target="_blank" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+      <a href="#" target="_blank" aria-label="Escuchar en vivo"><i class="fas fa-play"></i></a>
     </div>
   </footer>
 
-  <!-- SCRIPT -->
+  <!-- SCRIPT DE REPRODUCTOR Y FORMULARIO -->
   <script>
     const streamURL = "https://stream.zeno.fm/8dam4xw6cpnuv";
     const audio = document.getElementById('radioStream');
@@ -209,9 +208,8 @@
           isPlaying = true;
           btn.innerHTML = '❚❚ PAUSA';
           btn.classList.add('playing');
-          console.log("[RADIO CONSOLE]: Reproducción iniciada con éxito.");
         }).catch(error => {
-          console.error("[RADIO CONSOLE ERROR]: Error al conectar al streaming.", error);
+          console.error("Error al conectar al streaming.", error);
           alert("Error de conexión con la emisora. Intenta nuevamente.");
         });
       } else {
@@ -220,13 +218,11 @@
         isPlaying = false;
         btn.innerHTML = '▶ PLAY';
         btn.classList.remove('playing');
-        console.log("[RADIO CONSOLE]: Streaming pausado.");
       }
     }
 
     function changeVolume(val) {
       audio.volume = val;
-      console.log("[RADIO CONSOLE]: Volumen cambiado a " + Math.round(val * 100) + "%");
     }
 
     function enviarSugerencia(event) {
@@ -237,13 +233,6 @@
       const feedback = document.getElementById('formFeedback');
 
       if (!nombre || !cancion) return;
-
-      console.log("==========================================");
-      console.log("🎵 NUEVA PETICIÓN DE CANCIÓN RECIBIDA");
-      console.log("Oyente: " + nombre);
-      console.log("Canción Solicitada: " + cancion);
-      console.log("Hora: " + new Date().toLocaleTimeString());
-      console.log("==========================================");
 
       feedback.innerText = "¡Sugerencia enviada! Redirigiendo a WhatsApp...";
       feedback.style.display = "block";
