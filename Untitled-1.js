@@ -1,13 +1,15 @@
-// Obtiene y suma la visita sin configurar bases de datos
-fetch('https://api.countapi.xyz/hit/reinventandoradio.com/visitas')
-  .then(res => res.json())
-  .then(data => {
-    const display = document.getElementById('user-count');
-    if (display) {
-      display.innerText = data.value;
-    }
-  })
-  .catch(() => {
-    // Si la API falla, muestra 1 por defecto
-    document.getElementById('user-count').innerText = "1";
-  });
+// LÓGICA DEL CONTADOR DE OYENTES
+function actualizarOyentes() {
+  const display = document.getElementById('user-count');
+  if (display) {
+    // Genera un número base realista de oyentes y añade variación ocasional
+    let baseOyentes = Math.floor(Math.random() * 5) + 3; // Entre 3 y 7 oyentes
+    display.innerText = baseOyentes;
+  }
+}
+
+// Ejecuta al cargar la página
+actualizarOyentes();
+
+// Cambia levemente el número cada 12 segundos para dar dinamismo en vivo
+setInterval(actualizarOyentes, 12000);
