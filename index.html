@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reinventando Radio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER / NAVEGACIÓN -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="Logo Reinventando Radio" class="logo-img">
+      <div class="logo-text">
+        <h1>REINVENTANDO</h1>
+        <h2>RADIO</h2>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="#inicio">INICIO</a> <span>|</span>
+      <a href="#programacion">PROGRAMACIÓN</a> <span>|</span>
+      <a href="#galeria">GALERÍA</a> <span>|</span>
+      <a href="#contacto">CONTACTO</a> <span>|</span>
+      <a href="#reinventarse">REINVENTARSE</a>
+    </nav>
+  </header>
+
+  <main class="container" id="inicio">
+
+    <!-- SECCIÓN SUPERIOR: REPRODUCTOR, FLYER Y FOTOS -->
+    <section class="hero-grid">
+      
+      <!-- REPRODUCTOR EN VIVO CON VOLUMEN -->
+      <div class="card card-player">
+        <div class="player-controls">
+          <button class="btn-play" id="playBtn" onclick="toggleAudio()">▶ PLAY</button>
+          <div class="volume-container">
+            <span class="vol-icon">🔊</span>
+            <input type="range" id="volumeControl" min="0" max="1" step="0.05" value="0.8" oninput="changeVolume(this.value)">
+          </div>
+        </div>
+
+        <audio id="radioStream" preload="none"></audio>
+
+        <div class="player-info">
+          <h3>ESCUCHA EN VIVO</h3>
+          <div class="wave">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <p>EN AIRE: <span id="streamState">LA MAÑANA REINVENTADA</span></p>
+        </div>
+      </div>
+
+      <!-- TARJETA DEL FLYER / POSTER CON EFECTO DE LUZ Y FONDO AMBIENTAL -->
+      <div class="card poster-card">
+        <div class="poster-bg" style="background-image: url('poster.jpg');"></div>
+        <img src="IMG/poster.jpg" alt="After Vibes - DJ Psykcoatl" class="poster-img">
+      </div>
+
+      <!-- TARJETAS DE FOTOS CABINA -->
+      <div class="card photo-card" id="galeria">
+        <div class="img-box">
+          <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=300&q=80" alt="Cabina Principal">
+        </div>
+        <h4>Cabina Principal</h4>
+        <p>Nuestra sala principal con mesa de mezcla y monitores profesionales</p>
+      </div>
+
+      <div class="card photo-card">
+        <div class="img-box">
+          <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=300&q=80" alt="Producción">
+        </div>
+        <h4>Producción & Streaming</h4>
+        <p>Software profesional para streaming 24/7</p>
+      </div>
+
+      <div class="card photo-card">
+        <div class="img-box">
+          <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=300&q=80" alt="Equipo">
+        </div>
+        <h4>Equipo Profesional</h4>
+        <p>Micrófono de estudio y audífonos de alta fidelidad</p>
+      </div>
+    </section>
+
+    <!-- BOTONES GRANDES DE ACCIÓN -->
+    <section class="banner-buttons">
+      <a href="https://www.facebook.com/share/1D6CnRkXz7/" target="_blank" class="btn-action btn-blue">
+        <span class="icon">f</span> IR A FACEBOOK
+      </a>
+      <a href="https://wa.me/" target="_blank" class="btn-action btn-green">
+        <span class="icon">💬</span> WHATSAPP EN VIVO
+      </a>
+    </section>
+
+    <!-- TÍTULO DE SECCIÓN -->
+    <div class="section-divider">
+      <h2>NUESTRA CABINA Y EQUIPO</h2>
+    </div>
+
+    <!-- SECCIÓN DE 4 COLUMNAS -->
+    <section class="grid-4-cols">
+      
+      <!-- APPS CON FLECHAS INDICADORAS -->
+      <div class="card col-card">
+        <h3>ESCÚCHANOS POR ESTAS APPS</h3>
+        
+        <!-- FLECHAS SEÑALANDO ABAJO -->
+        <div class="apps-arrows">
+          <span>▼</span>
+          <span>▼</span>
+          <span>▼</span>
+        </div>
+
+        <div class="apps-grid">
+          <a href="https://tunein.com" target="_blank" class="app-btn tunein">
+            <img src="tunein.png" alt="TuneIn Logo" class="app-icon">
+            <span>TuneIn</span>
+          </a>
+
+          <a href="https://zeno.fm" target="_blank" class="app-btn zeno">
+            <img src="zeno.png" alt="ZenoRadio Logo" class="app-icon">
+            <span>ZenoRadio</span>
+          </a>
+
+          <a href="https://mytuner-radio.com" target="_blank" class="app-btn mytuner">
+            <img src="mytuner.png" alt="myTuner Logo" class="app-icon">
+            <span>myTuner</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- SUGERIR CANCIÓN -->
+      <div class="card col-card">
+        <h3>SUGERIR CANCIÓN</h3>
+        <form class="song-form" id="songForm" onsubmit="enviarSugerencia(event)">
+          <input type="text" id="userName" placeholder="Tu nombre" required>
+          <input type="text" id="songTitle" placeholder="Artista — Canción" required>
+          <button type="submit" class="btn-submit" id="btnSubmit">ENVIAR SUGERENCIA</button>
+        </form>
+        <div id="formFeedback" class="form-feedback"></div>
+      </div>
+
+      <!-- CONCEPTO -->
+      <div class="card col-card" id="reinventarse">
+        <h3>CONCEPTO REINVENTADO</h3>
+        <p>Somos una radio online que reinventa la forma de comunicar. Transmitimos música, actualidad y entretenimiento 24/7 para una comunidad que busca contenido fresco, cercano y real.</p>
+        <a href="#contacto" class="link-more">LEER MÁS →</a>
+      </div>
+
+      <!-- PRÓXIMOS PROGRAMAS -->
+      <div class="card col-card" id="programacion">
+        <h3>PRÓXIMOS PROGRAMAS</h3>
+        <ul class="schedule">
+          <li><span>09:00</span> La Mañana Reinventada</li>
+          <li><span>12:00</span> Clásicos de los 90s</li>
+          <li><span>15:00</span> Tech & Música</li>
+          <li><span>18:00</span> Tarde Urbana</li>
+          <li><span>22:00</span> After Vibes (DJ Psykcoatl)</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- TÍTULO DE SECCIÓN -->
+    <div class="section-divider">
+      <h2>NUESTRA MISIÓN</h2>
+    </div>
+
+    <!-- TARJETA MISIÓN -->
+    <section class="card mission-card">
+      <p>En <strong>REINVENTANDO RADIO</strong> nuestra misión es conectar con la audiencia a través de la mejor variedad musical: pop, rock, clásicos y urbana, además de entrevistas exclusivas, programas de actualidad y entretenimiento en vivo. Buscamos ofrecer contenido fresco, informativo y cercano 24/7, comprometidos con escuchar a nuestra comunidad, impulsar nuevas voces y reinventar la radio online con programación cercana, profesional y entretenida para todos.</p>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contacto">
+    <div class="footer-copy">© 2024 REINVENTANDO RADIO • Todos los derechos reservados</div>
+    <div class="footer-links">
+      <a href="#inicio">Mensajes de la Audiencia</a> • 
+      <a href="#contacto">Contacto</a> • 
+      <a href="#">Privacidad</a> • 
+      <a href="#">Política de Cookies</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/share/1D6CnRkXz7/" target="_blank" title="Facebook">f</a>
+      <a href="#" title="Instagram">📷</a>
+      <a href="#" title="X / Twitter">𝕏</a>
+      <a href="#" title="Spotify">🎧</a>
+      <a href="#" title="YouTube">▶</a>
+    </div>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    const streamURL = "https://stream.zeno.fm/8dam4xw6cpnuv";
+    const audio = document.getElementById('radioStream');
+    const btn = document.getElementById('playBtn');
+    let isPlaying = false;
+
+    function toggleAudio() {
+      if (!isPlaying) {
+        audio.src = streamURL + "?nocache=" + new Date().getTime();
+        audio.load();
+        
+        audio.play().then(() => {
+          isPlaying = true;
+          btn.innerHTML = '❚❚ PAUSA';
+          btn.classList.add('playing');
+          console.log("[RADIO CONSOLE]: Reproducción iniciada con éxito.");
+        }).catch(error => {
+          console.error("[RADIO CONSOLE ERROR]: Error al conectar al streaming.", error);
+          alert("Error de conexión con la emisora. Intenta nuevamente.");
+        });
+      } else {
+        audio.pause();
+        audio.src = "";
+        isPlaying = false;
+        btn.innerHTML = '▶ PLAY';
+        btn.classList.remove('playing');
+        console.log("[RADIO CONSOLE]: Streaming pausado.");
+      }
+    }
+
+    function changeVolume(val) {
+      audio.volume = val;
+      console.log("[RADIO CONSOLE]: Volumen cambiado a " + Math.round(val * 100) + "%");
+    }
+
+    function enviarSugerencia(event) {
+      event.preventDefault();
+      
+      const nombre = document.getElementById('userName').value.trim();
+      const cancion = document.getElementById('songTitle').value.trim();
+      const feedback = document.getElementById('formFeedback');
+
+      if (!nombre || !cancion) return;
+
+      console.log("==========================================");
+      console.log("🎵 NUEVA PETICIÓN DE CANCIÓN RECIBIDA");
+      console.log("Oyente: " + nombre);
+      console.log("Canción Solicitada: " + cancion);
+      console.log("Hora: " + new Date().toLocaleTimeString());
+      console.log("==========================================");
+
+      feedback.innerText = "¡Sugerencia enviada! Redirigiendo a WhatsApp...";
+      feedback.style.display = "block";
+
+      const textoWA = `Hola Reinventando Radio! Soy ${nombre} y me gustaría escuchar: ${cancion}`;
+      const urlWA = `https://wa.me/?text=${encodeURIComponent(textoWA)}`;
+
+      setTimeout(() => {
+        window.open(urlWA, '_blank');
+        document.getElementById('songForm').reset();
+        feedback.style.display = "none";
+      }, 1200);
+    }
+  </script>
+
+</body>
+</html>
