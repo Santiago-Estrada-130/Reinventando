@@ -13,7 +13,7 @@
 </head>
 <body>
 
-  <!-- HEADER / NAVEGACIÓN -->
+  <!-- HEADER / NAVEGACIÓN CON CONTADOR AL CENTRO -->
   <header class="navbar">
     <div class="logo">
       <img src="IMG/Reinventando.jpg" alt="Logo Reinventando Radio" class="logo-img">
@@ -24,23 +24,19 @@
     </div>
 
     <!-- CONTADOR EN TIEMPO REAL (AL CENTRO) -->
-   <div class="live-counter-container">
-    <span class="pulse-dot"></span>
-    <span class="counter-text"><strong id="user-count">4</strong> escuchando</span>
-   </div>
+    <div class="live-counter-container">
+      <span class="pulse-dot"></span>
+      <span class="counter-text"><strong id="user-count">4</strong> escuchando</span>
+    </div>
 
     <nav class="nav-links">
-  <a href="#inicio">INICIO</a> <span>|</span>
-  <a href="#programacion">PROGRAMACIÓN</a> <span>|</span>
-  <a href="#mision">MISIÓN</a> <span>|</span>
-  <a href="https://wa.me/5630801348" target="_blank">CONTACTO</a>
-</nav>
+      <a href="#inicio">INICIO</a> <span>|</span>
+      <a href="#programacion">PROGRAMACIÓN</a> <span>|</span>
+      <a href="#mision">MISIÓN</a> <span>|</span>
+      <a href="https://wa.me/5630801348" target="_blank">CONTACTO</a>
+    </nav>
   </header>
-<!-- CONTADOR EN TIEMPO REAL (SIN BASE DE DATOS PROPIA) -->
-<div class="live-counter-container">
-  <span class="pulse-dot"></span>
-  <span class="counter-text"><strong id="user-count">1</strong> personas visitando ahora</span>
-</div>
+
   <main class="container" id="inicio">
 
     <!-- SECCIÓN SUPERIOR: REPRODUCTOR Y GALERÍA DE CABINA -->
@@ -193,13 +189,13 @@
 
   <!-- FOOTER LIMPIO -->
   <footer class="footer" id="contacto">
-  <div class="footer-copy">&copy; 2026 REINVENTANDO RADIO &bull; Todos los derechos reservados</div>
-  <div class="footer-social">
-    <span>🎧</span>
-    <span>📷</span>
-    <span>🎙️</span>
-  </div>
-</footer>
+    <div class="footer-copy">&copy; 2026 REINVENTANDO RADIO &bull; Todos los derechos reservados</div>
+    <div class="footer-social">
+      <span>🎧</span>
+      <span>📷</span>
+      <span>🎙️</span>
+    </div>
+  </footer>
 
   <!-- SCRIPT DE REPRODUCTOR Y FORMULARIO -->
   <script>
@@ -257,26 +253,19 @@
     }
   </script>
   
-<!-- SCRIPT DEL CONTADOR EN VIVO -->
+  <!-- SCRIPT DEL CONTADOR EN VIVO -->
   <script>
     function actualizarOyentes() {
       const display = document.getElementById('user-count');
       if (display) {
-        // Genera un número de oyentes entre 3 y 8
         let oyentes = Math.floor(Math.random() * 6) + 3;
         display.innerText = oyentes;
       }
     }
 
-    // Ejecutar al cargar la página
     actualizarOyentes();
-
-    // Actualizar dinámicamente cada 10 segundos
     setInterval(actualizarOyentes, 10000);
   </script>
-
-</body>
-</html>
 
 </body>
 </html>
