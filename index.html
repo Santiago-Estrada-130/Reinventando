@@ -197,38 +197,87 @@
     </div>
   </footer>
 
-  <!-- SCRIPT DE REPRODUCTOR Y FORMULARIO -->
+  <!-- SCRIPT CON RECONEXIÓN AUTOMÁTICA Y SEGUNDO PLANO -->
   <script>
     const streamURL = "https://stream.zeno.fm/8dam4xw6cpnuv";
     const audio = document.getElementById('radioStream');
     const btn = document.getElementById('playBtn');
     let isPlaying = false;
+    let checkInterval = null;
 
     function toggleAudio() {
       if (!isPlaying) {
-        audio.src = streamURL + "?nocache=" + new Date().getTime();
-        audio.load();
-        
-        audio.play().then(() => {
-          isPlaying = true;
-          btn.innerHTML = '❚❚ PAUSA';
-          btn.classList.add('playing');
-        }).catch(error => {
-          console.error("Error al conectar al streaming.", error);
-          alert("Error de conexión con la emisora. Intenta nuevamente.");
-        });
+        iniciarReproduccion();
       } else {
-        audio.pause();
-        audio.src = "";
-        isPlaying = false;
-        btn.innerHTML = '▶ PLAY';
-        btn.classList.remove('playing');
+        detenerReproduccion();
       }
+    }
+
+    function iniciarReproduccion() {
+      audio.src = streamURL + "?nocache=" + new Date().getTime();
+      audio.load();
+      
+      audio.play().then(() => {
+        isPlaying = true;
+        btn.innerHTML = '❚❚ PAUSA';
+        btn.classList.add('playing');
+        
+        // Integración con barra de notificaciones / pantalla de bloqueo
+        if ('mediaSession' in navigator) {
+          navigator.mediaSession.metadata = new MediaMetadata({
+            title: 'En Vivo 24/7',
+            artist: 'REINVENTANDO RADIO',
+            album: 'Streaming Online',
+            artwork: [{ src: 'IMG/Reinventando.jpg', sizes: '512x512', type: 'image/jpeg' }]
+          });
+
+          navigator.mediaSession.setActionHandler('play', iniciarReproduccion);
+          navigator.mediaSession.setActionHandler('pause', detenerReproduccion);
+        }
+
+        // Inicia el monitoreo continuo para evitar que se detenga la música
+        iniciarMonitoreo();
+
+      }).catch(error => {
+        console.error("Error al conectar al streaming.", error);
+        alert("Error de conexión con la emisora. Intenta nuevamente.");
+      });
+    }
+
+    function detenerReproduccion() {
+      audio.pause();
+      audio.src = "";
+      isPlaying = false;
+      btn.innerHTML = '▶ PLAY';
+      btn.classList.remove('playing');
+      if (checkInterval) clearInterval(checkInterval);
     }
 
     function changeVolume(val) {
       audio.volume = val;
     }
+
+    // Monitorea cortes y reconecta automáticamente si la señal parpadea
+    function iniciarMonitoreo() {
+      if (checkInterval) clearInterval(checkInterval);
+      
+      checkInterval = setInterval(() => {
+        if (isPlaying && (audio.paused || audio.readyState === 0)) {
+          console.warn("Se detectó microcorte. Reconectando señal...");
+          audio.src = streamURL + "?nocache=" + new Date().getTime();
+          audio.play().catch(e => console.log("Reintentando reconexión..."));
+        }
+      }, 5000);
+    }
+
+    audio.onerror = function() {
+      if (isPlaying) {
+        setTimeout(() => {
+          audio.src = streamURL + "?nocache=" + new Date().getTime();
+          audio.play();
+        }, 2000);
+      }
+    };
 
     function enviarSugerencia(event) {
       event.preventDefault();
