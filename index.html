@@ -26,14 +26,13 @@
     <!-- CONTADOR EN TIEMPO REAL (AL CENTRO) -->
     <div class="live-counter-container">
       <span class="pulse-dot"></span>
-      <span class="counter-text"><strong id="user-count">4</strong> escuchando</span>
+      <span class="counter-text"><strong id="user-count">2000</strong> escuchando</span>
     </div>
 
     <nav class="nav-links">
       <a href="#inicio">INICIO</a> <span>|</span>
       <a href="#programacion">PROGRAMACIÓN</a> <span>|</span>
-      <a href="#mision">MISIÓN</a> <span>|</span>
-      <a href="https://wa.me/5630801348" target="_blank">CONTACTO</a>
+      <a href="#mision">MISIÓN</a>
     </nav>
   </header>
 
@@ -59,7 +58,7 @@
           <div class="wave">
             <span></span><span></span><span></span><span></span><span></span>
           </div>
-          <p>AL AIRE </p>
+          <p>AL AIRE</p>
         </div>
       </div>
 
@@ -94,7 +93,7 @@
       <a href="https://www.facebook.com/share/1D6CnRkXz7/" target="_blank" class="btn-action btn-blue">
         <i class="fab fa-facebook-f"></i> IR A FACEBOOK
       </a>
-      <a href="https://wa.me/" target="_blank" class="btn-action btn-green">
+      <a href="https://wa.me/525630801348" target="_blank" class="btn-action btn-green">
         <i class="fab fa-whatsapp"></i> WHATSAPP EN VIVO
       </a>
     </section>
@@ -156,11 +155,12 @@
       <div class="card col-card" id="programacion">
         <h3>PRÓXIMOS PROGRAMAS</h3>
         <ul class="schedule">
-          <li><span>20:00</span> El Descorche </li>
-          <li><span>22:00</span> After Vibes (DJ Psykcoatl)</li>
+          <li><span>Lunes a viernes</span> El Show de Gio: 7 a 10 AM</li>
+          <li><span>Lunes a viernes</span> El Descorche: 8 a 10 AM</li>
+          <li><span>Lunes a viernes</span> After Vibes (DJ Psykcoatl): 10 a 1 AM</li>
         </ul>
       </div>
-
+      
     </section>
 
     <!-- TÍTULO DE SECCIÓN: NUESTRA MISIÓN -->
@@ -168,23 +168,29 @@
       <h2>NUESTRA MISIÓN</h2>
     </div>
 
-    <!-- MISIÓN Y PROMOCIÓN -->
+    <!-- MISIÓN Y PROMOCIONES -->
     <section class="mision-container">
       <div class="card mission-card">
         <p>En <strong>REINVENTANDO RADIO</strong> nuestra misión es conectar con la audiencia a través de la mejor variedad musical: pop, rock, clásicos y urbana, además de entrevistas exclusivas, programas de actualidad y entretenimiento en vivo. Buscamos ofrecer contenido fresco, informativo y cercano 24/7, comprometidos con escuchar a nuestra comunidad, impulsar nuevas voces y reinventar la radio online con programación cercana, profesional y entretenida para todos.</p>
       </div>
 
-      <!-- IMAGEN DE LA PROMOCIÓN JUSTO ABAJO DE LA MISIÓN -->
+      <!-- IMAGEN PROMOCIONAL: AFTER VIBES -->
       <div class="card poster-card">
         <div class="poster-bg" style="background-image: url('IMG/poster.jpg');"></div>
         <img src="IMG/poster.jpg" alt="After Vibes - DJ Psykcoatl" class="poster-img">
+      </div>
+
+      <!-- IMAGEN PROMOCIONAL: EL SHOW DE GIO -->
+      <div class="card poster-card poster-gio">
+        <div class="poster-bg" style="background-image: url('IMG/gio.jpg');"></div>
+        <img src="IMG/gio.jpg" alt="El Show de Gio" class="poster-img">
       </div>
     </section>
 
   </main>
 
-  <!-- FOOTER LIMPIO -->
-  <footer class="footer" id="contacto">
+  <!-- FOOTER -->
+  <footer class="footer">
     <div class="footer-copy">&copy; 2026 REINVENTANDO RADIO &bull; Todos los derechos reservados</div>
     <div class="footer-social">
       <span>🎧</span>
@@ -218,7 +224,6 @@
         btn.innerHTML = '❚❚ PAUSA';
         btn.classList.add('playing');
         
-        // Integración con barra de notificaciones / pantalla de bloqueo
         if ('mediaSession' in navigator) {
           navigator.mediaSession.metadata = new MediaMetadata({
             title: 'En Vivo 24/7',
@@ -231,7 +236,6 @@
           navigator.mediaSession.setActionHandler('pause', detenerReproduccion);
         }
 
-        // Inicia el monitoreo continuo para evitar que se detenga la música
         iniciarMonitoreo();
 
       }).catch(error => {
@@ -253,7 +257,6 @@
       audio.volume = val;
     }
 
-    // Monitorea cortes y reconecta automáticamente si la señal parpadea
     function iniciarMonitoreo() {
       if (checkInterval) clearInterval(checkInterval);
       
@@ -287,8 +290,9 @@
       feedback.innerText = "¡Sugerencia enviada! Redirigiendo a WhatsApp...";
       feedback.style.display = "block";
 
+      const numeroWA = "525630801348";
       const textoWA = `Hola Reinventando Radio! Soy ${nombre} y me gustaría escuchar: ${cancion}`;
-      const urlWA = `https://wa.me/?text=${encodeURIComponent(textoWA)}`;
+      const urlWA = `https://wa.me/${numeroWA}?text=${encodeURIComponent(textoWA)}`;
 
       setTimeout(() => {
         window.open(urlWA, '_blank');
@@ -298,13 +302,13 @@
     }
   </script>
   
-  <!-- SCRIPT DEL CONTADOR EN VIVO -->
+  <!-- SCRIPT DEL CONTADOR EN VIVO (A PARTIR DE 2000) -->
   <script>
     function actualizarOyentes() {
       const display = document.getElementById('user-count');
       if (display) {
-        let oyentes = Math.floor(Math.random() * 6) + 3;
-        display.innerText = oyentes;
+        let oyentes = 2000 + Math.floor(Math.random() * 15);
+        display.innerText = oyentes.toLocaleString('es-MX');
       }
     }
 
