@@ -134,15 +134,17 @@
         </div>
       </div>
 
-<!-- SUGERIR CANCIÓN -->
-<div class="card col-card">
-  <h3>SUGERIR CANCIÓN</h3>
-  <form action="https://api.whatsapp.com/send" method="GET" target="_blank" class="song-form">
-    <input type="hidden" name="phone" value="525652387930">
-    <textarea name="text" rows="3" required placeholder="Hola Reinventando Radio! Soy [Tu Nombre] y me gustaría escuchar: [Canción] de [Artista]"></textarea>
-    <button type="submit" class="btn-submit" id="btnSubmit">ENVIAR SUGERENCIA</button>
-  </form>
-</div>
+      <!-- SUGERIR CANCIÓN -->
+      <div class="card col-card">
+        <h3>SUGERIR CANCIÓN</h3>
+        <form class="song-form" id="songForm" onsubmit="enviarSugerencia(event)">
+          <input type="text" id="userName" placeholder="Tu nombre" required>
+          <input type="text" id="songTitle" placeholder="Nombre de la canción" required>
+          <input type="text" id="artistName" placeholder="Nombre del artista" required>
+          <button type="submit" class="btn-submit" id="btnSubmit">ENVIAR SUGERENCIA</button>
+        </form>
+        <div id="formFeedback" class="form-feedback"></div>
+      </div>
 
       <!-- CONCEPTO -->
       <div class="card col-card" id="reinventarse">
@@ -180,24 +182,23 @@
         <img src="IMG/show_gio.jpeg" alt="El Show de Gio" class="poster-img">
       </div>
 
- <!-- IMAGEN PROMOCIONAL: LA MEDUSA -->
+      <!-- IMAGEN PROMOCIONAL: LA MEDUSA -->
       <div class="card poster-card">
         <div class="poster-bg" style="background-image: url('IMG/poster.jpg');"></div>
         <img src="IMG/medusa.jpeg" alt="After Vibes - DJ Psykcoatl" class="poster-img">
       </div>
 
-       <!-- IMAGEN PROMOCIONAL: EL SHOW DE GIO -->
+      <!-- IMAGEN PROMOCIONAL: EL DESCORCHE -->
       <div class="card poster-card poster-gio">
         <div class="poster-bg" style="background-image: url('IMG/gio.jpg');"></div>
         <img src="IMG/descorche.jpeg" alt="El Show de Gio" class="poster-img">
       </div>
 
-       <!-- IMAGEN PROMOCIONAL: AFTER VIBES -->
+      <!-- IMAGEN PROMOCIONAL: AFTER VIBES -->
       <div class="card poster-card">
         <div class="poster-bg" style="background-image: url('IMG/poster.jpg');"></div>
         <img src="IMG/poster.jpg" alt="After Vibes - DJ Psykcoatl" class="poster-img">
       </div>
-
 
     </section>
 
@@ -297,15 +298,16 @@
       
       const nombre = document.getElementById('userName').value.trim();
       const cancion = document.getElementById('songTitle').value.trim();
+      const artista = document.getElementById('artistName').value.trim();
       const feedback = document.getElementById('formFeedback');
 
-      if (!nombre || !cancion) return;
+      if (!nombre || !cancion || !artista) return;
 
       feedback.innerText = "¡Sugerencia enviada! Redirigiendo a WhatsApp...";
       feedback.style.display = "block";
 
-      const numeroWA = "525630801348";
-      const textoWA = `Hola Reinventando Radio! Soy ${nombre} y me gustaría escuchar: ${cancion}`;
+      const numeroWA = "525652387930";
+      const textoWA = `Hola Reinventando Radio! Soy ${nombre} y me gustaría escuchar: ${cancion} de ${artista}`;
       const urlWA = `https://wa.me/${numeroWA}?text=${encodeURIComponent(textoWA)}`;
 
       setTimeout(() => {
@@ -316,7 +318,7 @@
     }
   </script>
   
-  <!-- SCRIPT DEL CONTADOR EN VIVO (A PARTIR DE 2000) -->
+  <!-- SCRIPT DEL CONTADOR EN VIVO -->
   <script>
     function actualizarOyentes() {
       const display = document.getElementById('user-count');
