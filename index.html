@@ -134,12 +134,19 @@
         </div>
       </div>
 
- <!-- SUGERIR CANCIÓN -->
-<form action="https://api.whatsapp.com/send" method="GET" target="_blank">
-  <input type="hidden" name="phone" value="525652387930">
-  <input type="text" name="text" value="Hola Reinventando, mi nombre es y me gustaria que pusieras la cancion del artista" required>
-  <button type="submit" class="btn-submit">ENVIAR SUGERENCIA</button>
-</form>
+<!-- SUGERIR CANCIÓN ->
+      <div class="card col-card">
+        <h3>SUGERIR CANCIÓN</h3>
+        <form class="song-form" action="https://api.whatsapp.com/send" method="GET" target="_blank">
+          <!-- Número a donde llega la sugerencia -->
+          <input type="hidden" name="phone" value="525652387930">
+          
+          <input type="text" placeholder="Tu nombre y canción/artista" name="text" required>
+          <button type="submit" class="btn-submit">ENVIAR SUGERENCIA</button>
+        </form>
+      </div>
+
+
 
       <!-- CONCEPTO -->
       <div class="card col-card" id="reinventarse">
