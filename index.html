@@ -137,15 +137,12 @@
 <!-- SUGERIR CANCIÓN -->
 <div class="card col-card">
   <h3>SUGERIR CANCIÓN</h3>
-  <form class="song-form" id="songForm" onsubmit="enviarSugerencia(event)">
-    <input type="text" id="userName" placeholder="Tu nombre" required>
-    <input type="text" id="songTitle" placeholder="Nombre de la canción" required>
-    <input type="text" id="artistName" placeholder="Nombre del artista" required>
+  <form action="https://api.whatsapp.com/send" method="GET" target="_blank" class="song-form">
+    <input type="hidden" name="phone" value="525652387930">
+    <textarea name="text" rows="3" required placeholder="Hola Reinventando Radio! Soy [Tu Nombre] y me gustaría escuchar: [Canción] de [Artista]"></textarea>
     <button type="submit" class="btn-submit" id="btnSubmit">ENVIAR SUGERENCIA</button>
   </form>
-  <div id="formFeedback" class="form-feedback"></div>
 </div>
-
 
       <!-- CONCEPTO -->
       <div class="card col-card" id="reinventarse">
