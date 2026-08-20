@@ -134,17 +134,17 @@
         </div>
       </div>
 
-<!-- SUGERIR CANCIÓN ->
-      <div class="card col-card">
-        <h3>SUGERIR CANCIÓN</h3>
-        <form class="song-form" action="https://api.whatsapp.com/send" method="GET" target="_blank">
-          <!-- Número a donde llega la sugerencia -->
-          <input type="hidden" name="phone" value="525652387930">
-          
-          <input type="text" placeholder="Tu nombre y canción/artista" name="text" required>
-          <button type="submit" class="btn-submit">ENVIAR SUGERENCIA</button>
-        </form>
-      </div>
+!-<!-- SUGERIR CANCIÓN -->
+<div class="card col-card">
+  <h3>SUGERIR CANCIÓN</h3>
+  <form class="song-form" id="songForm" onsubmit="enviarSugerencia(event)">
+    <input type="text" id="userName" placeholder="Tu nombre" required>
+    <input type="text" id="songTitle" placeholder="Nombre de la canción" required>
+    <input type="text" id="artistName" placeholder="Nombre del artista" required>
+    <button type="submit" class="btn-submit" id="btnSubmit">ENVIAR SUGERENCIA</button>
+  </form>
+  <div id="formFeedback" class="form-feedback"></div>
+</div>
 
 
 
