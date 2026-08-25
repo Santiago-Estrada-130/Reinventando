@@ -318,19 +318,16 @@
     }
   </script>
   
-  <!-- SCRIPT DEL CONTADOR EN VIVO -->
-  <script>
-    function actualizarOyentes() {
-      const display = document.getElementById('user-count');
-      if (display) {
-        let oyentes = 1380 + Math.floor(Math.random() * 15);
+  <!<!-- SCRIPT DEL CONTADOR EN VIVO -->
+<script>
+function actualizarOyentes() {
+    const display = document.getElementById('user-count');
+    if (display) {
+        let oyentes = 1700 + Math.floor(Math.random() * 15);
         display.innerText = oyentes.toLocaleString('es-MX');
-      }
     }
+}
 
-    actualizarOyentes();
-    setInterval(actualizarOyentes, 10000);
-  </script>
-
-</body>
-</html>
+actualizarOyentes();
+setInterval(actualizarOyentes, 10000);
+</script>
