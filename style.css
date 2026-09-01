@@ -204,34 +204,31 @@ body {
 .btn-blue { background: linear-gradient(180deg, #1877f2, #0d47a1); border: 1.5px solid #64b5f6; }
 .btn-green { background: linear-gradient(180deg, #25d366, #128c7e); border: 1.5px solid #81c784; }
 
-/* SECTION DIVIDER */
+/* SECTION DIVIDER CON LÍNEAS FLEXIBLES */
 .section-divider {
-  text-align: center;
-  position: relative;
-  margin: 25px 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
+  margin: 25px 0 15px;
 }
 
 .section-divider h2 {
-  display: inline-block;
   font-size: 1.3rem;
   font-weight: 900;
   letter-spacing: 1px;
   color: #ffffff;
   padding: 0 15px;
-  position: relative;
+  white-space: nowrap;
 }
 
-.section-divider::before, .section-divider::after {
+.section-divider::before, 
+.section-divider::after {
   content: "";
-  position: absolute;
-  top: 50%;
-  width: 35%;
+  flex: 1;
   height: 2px;
-  background: #28527a;
+  background-color: #28527a;
 }
-.section-divider::before { left: 0; }
-.section-divider::after { right: 0; }
 
 /* GRID 4 COLUMNAS */
 .grid-4-cols {
@@ -462,10 +459,6 @@ body {
   .grid-4-cols {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .section-divider::before, .section-divider::after {
-    width: 25%;
-  }
 }
 
 @media (max-width: 768px) {
@@ -498,9 +491,5 @@ body {
     flex-direction: column;
     gap: 15px;
     text-align: center;
-  }
-
-  .section-divider::before, .section-divider::after {
-    display: none;
   }
 }
