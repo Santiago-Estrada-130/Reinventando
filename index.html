@@ -199,28 +199,22 @@
         <div class="poster-bg" style="background-image: url('IMG/poster.jpg');"></div>
         <img src="IMG/poster.jpg" alt="After Vibes - DJ Psykcoatl" class="poster-img">
       </div>
-
     </section>
 
-  </main>
-
- <!-- TÍTULO DE SECCIÓN: NUESTROS PATROCINADORES-->
-    <div class="section-divider" id="mision">
-      <h2>NUESTROS PATROCINADORES </h2>
+    <!-- TÍTULO DE SECCIÓN: NUESTROS PATROCINADORES-->
+    <div class="section-divider" id="patrocinadores">
+      <h2>NUESTROS PATROCINADORES</h2>
     </div>
 
-    
+    <section class="mision-container">
       <!-- IMAGEN PROMOCIONAL: LOCOS X -->
       <div class="card poster-card poster-gio">
         <div class="poster-bg" style="background-image: url('IMG/gio.jpg');"></div>
-        <img src="IMG/Locos.jpeg" alt="El Show de Gio" class="poster-img">
+        <img src="IMG/Locos.jpeg" alt="Locos X Patrocinador" class="poster-img">
       </div>
-
     </section>
 
   </main>
-
-
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -336,16 +330,18 @@
     }
   </script>
   
-  <!<!-- SCRIPT DEL CONTADOR EN VIVO -->
-<script>
-function actualizarOyentes() {
-    const display = document.getElementById('user-count');
-    if (display) {
-        let oyentes = 1780 + Math.floor(Math.random() * 15);
-        display.innerText = oyentes.toLocaleString('es-MX');
+  <!-- SCRIPT DEL CONTADOR EN VIVO -->
+  <script>
+    function actualizarOyentes() {
+        const display = document.getElementById('user-count');
+        if (display) {
+            let oyentes = 1780 + Math.floor(Math.random() * 15);
+            display.innerText = oyentes.toLocaleString('es-MX');
+        }
     }
-}
 
-actualizarOyentes();
-setInterval(actualizarOyentes, 10000);
-</script>
+    actualizarOyentes();
+    setInterval(actualizarOyentes, 10000);
+  </script>
+</body>
+</html>
