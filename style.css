@@ -493,3 +493,18 @@ body {
     text-align: center;
   }
 }
+.card.poster-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;    /* Centra la imagen horizontalmente */
+  justify-content: center; /* Centra verticalmente si hay altura fija */
+  margin: 0 auto;         /* Centra el bloque entero dentro de la página */
+  width: 100%;            /* Asegura que tome todo el ancho disponible */
+}
+
+.poster-img {
+  display: block;
+  margin: 0 auto;         /* Refuerza el centrado de la etiqueta img */
+  max-width: 100%;        /* Mantiene el diseño responsivo */
+  height: auto;
+}
