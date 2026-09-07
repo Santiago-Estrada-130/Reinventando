@@ -493,6 +493,8 @@ body {
     text-align: center;
   }
 }
+
+
 .card.poster-card {
   display: flex;
   flex-direction: column;
