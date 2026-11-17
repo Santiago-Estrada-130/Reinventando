@@ -547,3 +547,9 @@ body {
   background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
   border: 1.5px solid #f39c12; 
 }
+
+/* ESTILO CON DEGRADADO OFICIAL DE YOUTUBE */
+.btn-youtube { 
+  background: linear-gradient(180deg, #ff0000 0%, #b30000 100%); 
+  border: 1.5px solid #ff4d4d; 
+}
